@@ -1,4 +1,4 @@
-package uk.co.slc;
+package com.onlineinteract;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.BulkWriteOperation;

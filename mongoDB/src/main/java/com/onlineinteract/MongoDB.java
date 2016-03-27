@@ -1,21 +1,30 @@
-package uk.co.slc;
+package com.onlineinteract;
 
-import com.mongodb.*;
-
-import java.net.UnknownHostException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.bson.Document;
+
+import com.mongodb.BasicDBList;
+import com.mongodb.BasicDBObject;
+import com.mongodb.BulkWriteOperation;
+import com.mongodb.BulkWriteResult;
+import com.mongodb.DBObject;
+import com.mongodb.MongoClient;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+
 public class MongoDB {
 
-    DB db;
-    DBCollection coll;
-    DBCursor cursor;
+	MongoDatabase db;
+	MongoCollection<Document> coll;
+	FindIterable<Document> cursor;
 
     public MongoDB() {
-        try {
+    	
             MongoClient mongoClient = new MongoClient("localhost", 27017);
-            db = mongoClient.getDB("mydb");
+            db = mongoClient.getDatabase("mydb");
             // boolean auth = db.authenticate(myUserName, myPassword);
             coll = db.getCollection("testCollection");
             System.out.println("Connected to MongoDB instance using mydb OK :)");
@@ -59,12 +68,11 @@ public class MongoDB {
 
             // Geo Indexes and Text Indexes omitted here...
 
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
     }
 
-    public void listCollections() {
+    // TODO: uncomment all the following and upgrade to MongoDB 3.2.2
+    
+/*    public void listCollections() {
         Set<String> colls = db.getCollectionNames();
 
         for (String s : colls) {
@@ -245,5 +253,5 @@ public class MongoDB {
         // mongoDB.executeQuery3();
         mongoDB.executeQuery4();
         // mongoDB.bulkOperations();
-    }
+    }*/
 }

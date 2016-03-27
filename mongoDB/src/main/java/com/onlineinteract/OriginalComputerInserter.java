@@ -1,4 +1,4 @@
-package uk.co.slc;
+package com.onlineinteract;
 
 import com.mongodb.*;
 
@@ -15,7 +15,9 @@ public class OriginalComputerInserter {
     DBCollection coll;
     DBCursor cursor;
 
-    public OriginalComputerInserter() {
+ // TODO: uncomment all the following and upgrade to MongoDB 3.2.2 (may not do this)
+    
+/*    public OriginalComputerInserter() {
         try {
             MongoClient mongoClient = new MongoClient("localhost", 27017);
             db = mongoClient.getDB("mydb");
@@ -83,5 +85,5 @@ public class OriginalComputerInserter {
         OriginalComputerInserter originalComputerInserter = new OriginalComputerInserter();
         originalComputerInserter.insertEnterprise();
 
-    }
+    }*/
 }
